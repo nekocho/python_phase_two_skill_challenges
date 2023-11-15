@@ -44,7 +44,15 @@ Given a string of text without capitalisation or punctuation at the end
 Returns string with capitalised first letter and full stop
 """
 
-check_grammar("today has been quite cold") => "Today has been quite cold."
+check_grammar("today has been quite cold") => "Today has been quite cold.
+
+"""
+Given no string
+Throws an error
+"""
+check_grammar("") => "No text provided!" 
+
+
 
 4. Implement the Behaviour
 
