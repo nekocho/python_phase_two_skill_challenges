@@ -45,3 +45,5 @@ text_reader("") => "No text entered"
 
 
 4. Implement the Behaviour
+
+Check lib/text_reader.py tests/test_text_reader.py
