@@ -3,6 +3,8 @@ class DiaryEntry:
         self.title = title
         self.contents = contents
         self.words = self.contents.split()
+        # Kay's example
+        self.read_so_far = 0
 
     def format(self):
         # Returns:
@@ -37,14 +39,28 @@ class DiaryEntry:
         # If called again, `reading_chunk` should return the next chunk,
         # skipping what has already been read, until the contents is fully read.
         # The next call after that should restart from the beginning.
-            i = 0
-            text_chunk = []
-            while i < minutes:
-                string = " ".join(self.words[i * wpm:(i + 1) * wpm])
-                text_chunk.append(string)
-                i += 1
+
+
+        # Kay's example:
+        words_user_can_read = wpm * minutes
+        words = self.contents.split()
+        chunk_start = self.read_so_far
+        chunk_end = self.read_so_far + words_user_can_read
+        chunk_words = words[chunk_start:chunk_end]
+        self.read_so_far = chunk_end
+        return " ".join(chunk_words)
+
+
+
+
+            # i = 0
+            # text_chunk = []
+            # while i < minutes:
+            #     string = " ".join(self.words[i * wpm:(i + 1) * wpm])
+            #     text_chunk.append(string)
+            #     i += 1
                 
-            return text_chunk
+            # return text_chunk
     
 diary = DiaryEntry("test", "This is a longer diary entry")
 diary.reading_chunk(2, 3)
