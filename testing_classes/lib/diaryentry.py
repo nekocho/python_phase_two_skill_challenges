@@ -43,10 +43,9 @@ class DiaryEntry:
 
         # Kay's example:
         words_user_can_read = wpm * minutes
-        words = self.contents.split()
         chunk_start = self.read_so_far
         chunk_end = self.read_so_far + words_user_can_read
-        chunk_words = words[chunk_start:chunk_end]
+        chunk_words = self.words[chunk_start:chunk_end]
         self.read_so_far = chunk_end
         return " ".join(chunk_words)
 
