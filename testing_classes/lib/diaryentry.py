@@ -37,4 +37,14 @@ class DiaryEntry:
         # If called again, `reading_chunk` should return the next chunk,
         # skipping what has already been read, until the contents is fully read.
         # The next call after that should restart from the beginning.
-        self.words
+            i = 0
+            text_chunk = []
+            while i < minutes:
+                string = " ".join(self.words[i * wpm:(i + 1) * wpm])
+                text_chunk.append(string)
+                i += 1
+                
+            return text_chunk
+    
+diary = DiaryEntry("test", "This is a longer diary entry")
+diary.reading_chunk(2, 3)

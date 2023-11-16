@@ -19,4 +19,8 @@ def test_reading_time():
 
 def test_reading_chunk():
     diary = DiaryEntry("test", "contents test")
-    assert diary.reading_chunk(1, 1) == "contents"
+    assert diary.reading_chunk(1, 1) == ["contents"]
+
+def test_reading_chunk_for_2wpm_3minutes():
+    diary = diary = DiaryEntry("Title", "This is a longer diary entry")
+    assert diary.reading_chunk(2, 3) == ["This is", "a longer", "diary entry"]
