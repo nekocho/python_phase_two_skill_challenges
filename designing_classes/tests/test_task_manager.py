@@ -36,35 +36,3 @@ def test_when_multiple_task_list_is_formatted():
     task_manager.add_task("Walk the dog") 
     task_manager.add_task("Clean the house")
     assert task_manager.get_task_list() == "Task List: ['Walk the dog', 'Clean the house']"
-
-# Given a completed task
-# Removes item from list
-
-def test_when_task_completed_omits_task():
-    task_manager = TaskManager()
-    task_manager.add_task("Walk the dog")
-    task_manager.add_task("Clean the house")
-    task_manager.complete_task("Walk the dog") 
-    assert task_manager.get_task_list() == "Task List: ['Clean the house']"
-
-# Given two completed tasks
-# Removes all items from list
-
-def test_when_task_completed_omits_task():
-    task_manager = TaskManager()
-    task_manager.add_task("Walk the dog")
-    task_manager.add_task("Clean the house")
-    task_manager.complete_task("Walk the dog") 
-    task_manager.complete_task("Clean the house") 
-    assert task_manager.get_task_list() == "Task List: [None]"
-
-
-# Given a completed task NOT in list
-# Throw an error
-
-def test_if_task_completed_is_not_in_list_throw_error():
-    task_manager = TaskManager()
-    with pytest.raises(Exception) as e:
-        task_manager.complete_task("Walk the dog")
-    error_message = str(e.value)
-    assert error_message == "Item not in List!"

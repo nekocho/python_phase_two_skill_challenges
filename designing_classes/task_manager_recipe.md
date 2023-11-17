@@ -47,14 +47,6 @@ class TaskManager:
         #   Throws an exception if no task is set
         pass # No code here yet
     
-    def complete_task(self, task):
-        # Parameters:
-        #     task_completed: a string representing the completed task
-        # Returns: 
-        #     A list of tasks with completed task omitted
-        # Side-effects:
-        #     Throws an exception if task is not in list
-        pass #No code here yet
 ```
 
 ## 3. Create Examples as Tests
@@ -98,36 +90,6 @@ task_manager = TaskManager()
 task_manager.add_task("Walk the dog") 
 task_manager.add_task("Clean the house")
 task_manager.get_task_list() # "Task List: ["Walk the dog", "Clean the house"]"
-
-"""
-Given a completed task
-Removes item from list
-"""
-task_manager = TaskManager()
-task_manager.add_task("Walk the dog")
-task_manager.add_task("Clean the house")
-task_manager.complete_task("Walk the dog") 
-task_manager.get_task_list() # "Task List: ['Clean the house']"
-
-"""
-Given two completed tasks
-Removes all items from list
-"""
-
-task_manager = TaskManager()
-task_manager.add_task("Walk the dog")
-task_manager.add_task("Clean the house")
-task_manager.complete_task("Walk the dog") 
-task_manager.complete_task("Clean the house") 
-task_manager.get_task_list() # "Task List: [None]"
-
-"""
-Given a completed task NOT in list
-Throw an error
-"""
-
-task_manager = TaskManager()
-task_manager.complete_task("Walk the dog") # => Raise error: "Item not in list!"
 
 ```
 

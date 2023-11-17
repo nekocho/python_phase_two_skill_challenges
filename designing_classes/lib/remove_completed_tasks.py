@@ -1,6 +1,4 @@
-import pytest
-
-class TaskManager:
+class RemoveCompleted:
     def __init__(self):
         self.task_list = []
     
@@ -13,3 +11,9 @@ class TaskManager:
             self.task_list.append(None)
         return f"Task List: {self.task_list}"
     
+    def complete_task(self, task):
+        if task in self.task_list:
+            self.task_list.remove(task)
+        else:
+            raise Exception("Item not in List!")
+        return f"Task List: {self.task_list}"
